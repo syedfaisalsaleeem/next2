@@ -5,6 +5,7 @@ import CantLoginCard from '../components/CantLoginCard';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { makeStyles } from '@material-ui/core/styles';
+import Link from "next/link"
 const useStyles = makeStyles((theme)=>({
     f1: {
         background: 'white',
@@ -72,10 +73,16 @@ export default function ResetPassword(){
                                 <div className={styles.footercardc12}>
                                     <div className={styles.footercardc121}>
                                         <div>
-                                            <li> Privacy Policy</li>
+                                            <Link href="/">
+                                            <p> Privacy Policy</p>
+                                            </Link>
+                                            
                                         </div>
                                         <div>
-                                            <li> User Notice</li>
+                                            <Link href="/">
+                                            <p> User Notice</p>
+                                            </Link>
+                                            
                                         </div>
 
                                     </div>

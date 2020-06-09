@@ -1,5 +1,6 @@
 import styles from "./Footer.module.css"
 import { Paper } from "@material-ui/core"
+import Link from "next/link"
 export default function Footer (){
     return(
         
@@ -10,13 +11,22 @@ export default function Footer (){
                 <div className={styles.footercardc12}>
                     <div className={styles.footercardc121}>
                         <div>
-                            <li> Privacy Policy</li>
+                            
+                            <Link href="">
+                                <p> Contact</p>
+                                </Link>
                         </div>
                         <div>
-                            <li> User Notice</li>
+                        <Link href="">
+                        <p> User Notice</p>
+                        </Link>
+                           
                         </div>
                         <div>
-                            <li> Support Center</li>
+                        <Link href="">
+                        <p> Support Center</p>
+                        </Link>
+                            
                         </div>
                 
                     </div>

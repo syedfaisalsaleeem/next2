@@ -48,8 +48,9 @@
     font-family:"Roboto" ;
     font-style: normal;
     font-weight: normal;
-    font-size: 0.7vw;
+    
     color:#255398;
+    
 }
 .footercardc122{
     display: flex;
@@ -63,27 +64,61 @@
 font-family:"Roboto" ;
 font-style: normal;
 font-weight: normal;
-font-size: 0.8vw;
+font-size: 16px;
 color:#255398;
 
 
 }
+.footercardc121 p{
+    font-size: 15px;
+    border-bottom: 1px solid #255398;
+
+    
+    
+    }
+.footercardc121 p:hover{
+    cursor:pointer;
+    border-bottom: 3px solid red;
+
+    
+    
+    }
+
 @media only screen and (max-width: 1600px){
 .footercardc12{
     width:70%;
 }
+.footercardc121 p{
+    font-size: 13px;
+}
+.footercardc122 p{
+    font-size: 14px;
+}
     }
     @media only screen and (max-width: 900px){
         .footercardc12{
-            width:60%;
+            width:70%;
         }
+        .footercardc122 p{
+            font-size: 12px;
+        }
+        .footercardc121 p{
+            font-size: 11px;
+        }
+        
             }
             
             @media only screen and (max-width: 600px){
                 .footercardc12{
-                    width:40%;
+                    width:100%;
                 }
                 .footercard{
                     margin-left: 50px;
+                }
+                .footercardc122 p{
+                    font-size: 10px;
+                }
+                .footercardc121 p{
+                    font-size: 8px;
                 }
                     }

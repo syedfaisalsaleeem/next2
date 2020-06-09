@@ -47,13 +47,32 @@ const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
     },
+    email:{
+    
+      position: "absolute",
+      marginLeft: "20vw",
+      width:"170px",
+      height:"38px",
+      marginTop: "-38px",
+      backgroundColor: "white",
+      alignItems: "center",
+      justifyContent: "center",
+      border: "10px solid #FFFFFF",
+      boxSizing: "border-box",
+      boxShadow: "0px 0px 20px rgba(92, 111, 139, 0.12)",
+      borderRadius: "9px",
+      
+      fontStyle: "normal",
+      fontWeight: "bold",
+      fontSize: "13px",
+  },
     f1: {
         background: 'white',
         borderRadius: 3,
         border: 0,
         color: 'black',
         marginTop:"20px",
-        boxShadow: '0 0px 0px 0px rgba(255, 105, 135, .3)',
+        boxShadow: '1 0px 0px 0px rgba(255, 105, 135, .3)',
     },
     f2:{
       background: 'white',
@@ -61,7 +80,7 @@ const useStyles = makeStyles((theme) => ({
         border: 0,
         color: 'black',
         marginTop:"0px",
-        boxShadow: '0 0px 0px 0px rgba(255, 105, 135, .3)',
+        boxShadow: '1 0px 0px 0px rgba(255, 105, 135, .3)',
     },
     Typofont:{
         fontSize:"17px",
@@ -159,20 +178,57 @@ export default function Swindow(){
         checkedA: true,
         checkedB: true,
         checkedC: true,
+        checkedD:false,
+        checkedE:false,
+        
       });
-    const [st1,set]=React.useState([
-            
-                
-            
-    ]);
-    const [count,inc_count]=React.useState(1);
+      const [error,seterror]=React.useState([""]);
+    const [st1,set]=React.useState([""]);
+    const [primaryemail,primaryemailfunction]=React.useState([""]);
+    const [primaryemailcount,inc_count]=React.useState(true);
 
-
+      const[authenticate,setauthenticate]=React.useState(true);
+      const[finalauthenticate,setfinalauthenticate]=React.useState(false);
       const [age, setAge] = React.useState('');
       const [fullWidth, setFullWidth] = React.useState(true);
       const [maxWidth, setMaxWidth] = React.useState('sm');
-    
-    
+    // const addprimaryemail=(event)=>{
+      
+    // };
+    function addprimaryemail(event){
+      console.log("working")
+      if(primaryemail.length===1){
+        primaryemailfunction([...primaryemail,""])
+        inc_count(false)
+
+      }
+      
+      
+      
+
+    };
+
+    function handleformsubmit(){
+      function handletrue(){
+        setauthenticate(true)
+        setfinalauthenticate(true)
+      }
+      function handlefalse(){
+        setauthenticate(false)
+        setfinalauthenticate(false)
+      }
+      console.log("working")
+      setauthenticate(false)
+      st1.map((st1)=>
+      
+      setauthenticate(st1.length>0?handletrue():handlefalse())
+      
+      )
+      
+    }
+    const handlecloselastdialog= ()=>{
+      setfinalauthenticate(false)
+    }
     
       const handleMaxWidthChange = (event) => {
         setMaxWidth(event.target.value);
@@ -187,15 +243,17 @@ export default function Swindow(){
       };
       const addcount=()=>{
         set([...st1,""])
+        seterror([...error,false])
+        
       }
       const addcount1=()=>{
         
         const {listi}=st1
-        console.log(listi);
+        //console.log(listi);
         inc_count(count+1);
         
         set({listi:[...st1.listi,""]})
-        console.log(st1.listi);
+       // console.log(st1.listi);
 
         
         
@@ -204,9 +262,10 @@ export default function Swindow(){
     const subcount=(event)=>{
         const x=event.target.id
         const listi=Object.assign([],st1);
+        const liste=Object.assign([],error);
         listi.splice(x,1);
-        
-        
+        liste.splice(x,1);
+        seterror(liste)
         set(listi);
     }
     const subcount1=(event)=>{
@@ -226,10 +285,10 @@ export default function Swindow(){
             }
             
         })
-        console.log(listi1)
+        //console.log(listi1)
         listi.length=0
         set({...st1,listi:listi1})
-        console.log(listi)
+        //console.log(listi)
     
         
         
@@ -272,12 +331,26 @@ export default function Swindow(){
           const {name,value}=event.target
           //console.log(name,value)
           //console.log(st1.indexOf(name))
-          let newArr = [...st1]; // copying the old datas array
-          newArr[name] = value; // replace e.target.value with whatever you want to change it to
-      
-          set(newArr);
+          
+            let newArr = [...st1]; // copying the old datas array
+            newArr[name] = value; // replace e.target.value with whatever you want to change it to
+        
+            set(newArr);
+          
+          
           
       }
+      const handletextprimary=(event)=>{
+        const {name,value}=event.target
+        console.log(name,value)
+        //console.log(st1.indexOf(name))
+        let newArr = [...primaryemail]; // copying the old datas array
+        newArr[name] = value; // replace e.target.value with whatever you want to change it to
+    
+        primaryemailfunction(newArr);
+      }
+      
+      
     return(
 
         <React.Fragment>
@@ -791,7 +864,7 @@ export default function Swindow(){
                                         <Divider/>
                                         <DialogContent style={{width:"22vw"}}>
                                         <DialogContentText id="alert-dialog-description">
-                                        You are about to proceed to make changes to your account this once submitted they will overwrite current data and settings. Do you wish to still continue ? 
+                                        You are about to make permanent changes to your account settings. Do you want to continue?
                                         </DialogContentText>
                                         </DialogContent>
                                         <Divider/>
@@ -841,26 +914,44 @@ export default function Swindow(){
                                         </DialogTitle>
 
                                         <Divider/>
-                                        <DialogContent style={{height:"100vh",width:"31vw"}}>
+                                        <form onSubmit={handleformsubmit}>
+                                        <DialogContent style={{height:"100vh"}}>
                                         <DialogContentText>
 
                                         </DialogContentText>
+                                        
                                         <Typography >
                                             Primary Email
                                         </Typography>
-                                        <TextField
-                                            autoFocus
-                                            margin="dense"
-                                            id="name"
-                                            label="Enter Email"
-                                            type="email"
-                                            variant="outlined"
-                                            style={{width:"60%"}}
-                                            
+                                        {primaryemailcount
+                                        ?
+                                        <Input   value={primaryemail[0]}  onChange={handletextprimary} name={0} style={{marginTop:"10px",width:"20vw"}}
+                                        icon={<Icon name='cancel' inverted circular link  />}
+                                        placeholder='Enter Email'
+                                        />:
+                                        <div>
+                                       <Input value={primaryemail[0]} name={0}   onChange={handletextprimary} style={{marginTop:"10px",width:"20vw"}}
+                                                                        icon={<Icon name='cancel' inverted circular link   />}
+                                                                        placeholder='Enter Email'
                                         />
-                                        <Typography componen="div" style={{display:"flex",width:"100%",marginTop:"10px"}}>
+                                        <IOSSwitch checked={state.checkedE} onChange={handleChange4} name="checkedE" />
+                                        <Input value={primaryemail[1]} name={1}  onChange={handletextprimary} style={{marginTop:"10px",width:"20vw"}}
+                                                                        placeholder='Enter Email'
+                                        />
+                                        </div>
+                                        
+
+                                        }
+                                        {state.checkedE
+                                        ?
+                                        <Typography component="p">Please verify email before you can make it the primary notificaiton method </Typography>
+                                        :
+                                        <Typography component="p"> </Typography>
+                                        }
+                                        
+                                        <Typography component="div" style={{display:"flex",width:"100%",marginTop:"10px"}}>
                                         <Fab aria-label="add" size="small" style={{background:"#6993FF",color:"white"}}>
-                                        <AddIcon />
+                                        <AddIcon onClick={addprimaryemail}/>
                                         
                                         </Fab>
                                         <Typography style={{display:"flex",marginLeft:"15px",alignItems:"center"}}>
@@ -872,25 +963,52 @@ export default function Swindow(){
                                         <Typography style={{marginTop:"15px"}}>
                                             Secondary Email List
                                         </Typography>
-                                        <Grid container justify="center" spacing={1}>
-                                 
+                                        <Grid container justify="flex-start" spacing={1}>
+                                        {authenticate?
+                                        <div >
                                         {st1.map((value,index) => (        
                                                                         
 
                                                                         
                                                                          
-                                                                        
-                                                                        <Input    value={value} onChange={handletext} name={index} style={{width:"100vw",marginTop:"10px"}}
+                                                                      
+                                                                        <Input    value={value} onChange={handletext} name={index} style={{width:"20vw",marginTop:"10px"}}
                                                                         icon={<Icon name='cancel' inverted circular link id={index} onClick={subcount} />}
                                                                         placeholder='Enter Email'
-                                                                      />                  
-                                                                        
+                                                                      /> 
+                                                                                      
+                                                                      
 
 
                                                                     
                                         
                                             
+                                        ))}</div>
+                                        :<div>
+                                        {st1.map((value,index) => (        
+                                                                        
+
+                                                                        
+                                                                         
+                                          <div>
+                                          <Input    value={value} onChange={handletext} name={index} style={{width:"20vw",marginTop:"10px"}}
+                                          icon={<Icon name='cancel' inverted circular link id={index} onClick={subcount} />}
+                                          placeholder='Enter Email'
+                                        /> 
+                                        <div style={{display:value.length===0?"flex":"none"}} className={classes.email}>
+                                          {//console.log({value}.length)
+                                          }
+                                          <p> Email is not valid</p>
+                                        </div>                 
+                                        </div>
+
+
+                                      
+          
+              
                                         ))}
+                                        </div>
+                                        }
                                         </Grid>
  
               
@@ -932,10 +1050,83 @@ export default function Swindow(){
                                         </Typography>
                                         <Divider style={{marginTop:"15px"}}/>
                                         <Typography component="div" style={{display:"flex",width:"100",justifyContent:"center",marginTop:"15px"}}>
-                                        <Button color="primary" variant="contained" onClick={handleSubmission}> Update Settings</Button>
+                                        <Button color="primary" variant="contained"  onClick={handleformsubmit}> Update Settings</Button>
                                         </Typography>
                                         </DialogContent>
+                                        </form>
                                 </Dialog>
+                                {finalauthenticate?
+                                  
+                                    
+                                  <form>
+                                  <Dialog
+                                        open={finalauthenticate}
+                                        onClose={handleSubmissionClose}
+                                        aria-labelledby="alert-dialog-title"
+                                        aria-describedby="alert-dialog-description"
+                                        
+                                        
+                                    >
+                                      {console.log(authenticate)}
+                                        <DialogTitle>
+                                        <Grid container style={{height:"6vh",display:"flex"}} >
+                                            <Grid items xs={11} style={{height:"6vh",display:"flex"}}>
+                                                <Grid container spacing={2}>
+                                                <Grid item>
+                                                </Grid>
+                                                <Grid item>
+                                                    <Typography component="div" style={{display:"flex",height:"6vh",justifyContent:"flex-start",alignItems:"center"}}>
+                                                    
+                                                    
+                                                    </Typography>
+                                                
+                                                </Grid>
+                                                <Grid item xs={5}>
+                                                    <Typography style={{display:"flex",height:"6vh",justifyContent:"flex-start",alignItems:"center",marginLeft:"-5px"}}>Authorize Change </Typography>
+                                                
+                                                </Grid>
+                                                </Grid>
+                                            
+                                            </Grid>
+                                            
+                                            <Grid items xs={1} style={{height:"6vh",display:"flex",justifyContent:"center",alignItems:"center"}}>
+                                            
+                                            <CloseIcon onClick={handlecloselastdialog} />
+                                            
+                                                
+                                            </Grid>
+                                            
+                                            
+                                            
+                                        </Grid>
+                                        </DialogTitle>
+                                        <Divider/>
+                                        <DialogContent style={{width:"22vw"}}>
+                                        <DialogContentText id="alert-dialog-description">
+                                        You are about to make permanent changes to your account settings. Do you want to continue?
+                                        </DialogContentText>
+                                        </DialogContent>
+                                        <Divider/>
+                                        <Typography style={{marginTop:"15px", display:"flex",justifyContent:"space-evenly",alignItems:"center" ,marginBottom:"20px"}}>
+                                        <Button  type="submit"color="primary" variant="contained">
+                                            Continue
+                                        </Button>
+                                        <Button onClick={handlecloselastdialog} color="primary" variant="outlined" autoFocus>
+                                            Close
+                                        </Button>
+                                        </Typography>
+  
+                                        
+                                    </Dialog>
+                                    </form>
+                                :
+                                  <div>
+                                    {console.log({finalauthenticate},"this false")}
+                                    <p>false</p>
+                                  </div>
+                                }
+                                
+
       </React.Fragment>
     )
 }

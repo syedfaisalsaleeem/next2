@@ -81,6 +81,7 @@ height: 100%;
     font-family:"Poppins" ;
     font-size: 13px;
     font-weight: bold;
+    border-bottom: 1px solid black;
     
     
 }
@@ -94,14 +95,18 @@ height: 100%;
     font-family:"Poppins" ;
     font-size: 13px;
     font-weight: bold;
+    border-bottom: 1px solid black;
     
     
 }
+
 .loginfooter1 p:hover{
     cursor: pointer;
+    border-bottom: 1px solid #8950FC;
 }
 .loginfooter2 p:hover{
     cursor: pointer;
+    border-bottom: 1px solid #8950FC;
 }
 .email{
     

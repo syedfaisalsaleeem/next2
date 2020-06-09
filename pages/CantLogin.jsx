@@ -5,6 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
+import Link from "next/link"
 const useStyles = makeStyles((theme)=>({
     f1: {
         background: 'white',
@@ -68,13 +69,18 @@ export default function CantLogin(){
                                 </div>
                                 <div className={styles.footercardc12}>
                                     <div className={styles.footercardc121}>
-                                        <div>
-                                            <li> Privacy Policy</li>
+                                    <div>
+                                            <Link href="/">
+                                            <p> Privacy Policy</p>
+                                            </Link>
+                                            
                                         </div>
                                         <div>
-                                            <li> User Notice</li>
+                                            <Link href="/">
+                                            <p> User Notice</p>
+                                            </Link>
+                                            
                                         </div>
-
                                     </div>
                                     <div className={styles.footercardc122}>
                                         <p>Copyright Cyber Intelligence House 2020.</p>

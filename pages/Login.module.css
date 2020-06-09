@@ -134,6 +134,11 @@ height: 65%;
     font-weight: normal;
     font-size: 0.9vw;
     color:#255398;
+    border-bottom: 1px solid black;
+}
+.footercardc121 p:hover{
+    border-bottom: 1px solid #8950FC;
+    cursor:pointer;
 }
 .footercardc122{
     display: flex;
