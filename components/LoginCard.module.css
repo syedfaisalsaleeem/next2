@@ -10,10 +10,11 @@ height: 100%;
 .containerlogincardin{
     display: flex;
     flex-direction: column;
-    width:65%;
-    height: 90%;
-    margin-top: 15%;
-    justify-content: flex-start;
+    width:100%;
+    
+    margin-top: 10%;
+    justify-content: center;
+    margin-bottom: 10%;
     
    
 

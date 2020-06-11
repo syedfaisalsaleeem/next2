@@ -6,7 +6,6 @@ import CardContent from '@material-ui/core/CardContent';
 import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from "next/link";
-import { Container,Typography,Grid,Paper} from '@material-ui/core';
 // The `withStyles()` higher-order component is injecting a `classes`
 // prop that is used by the `Button` component.
 const StyledCard = withStyles({
@@ -30,8 +29,8 @@ const useStyles = makeStyles((theme)=>({
         borderRadius: 3,
         border: 0,
         color: 'black',
-        
-        
+        width:"100vw",
+        minWidth: 275,
         boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     },
     textField: {
@@ -43,54 +42,44 @@ const useStyles = makeStyles((theme)=>({
 export default function Login(){
     const classes = useStyles();
     return(
-        <div style={{minHeight: "100vh",display:"flex",flexDirection:"column"}}>
+        <div>
         <Head>
-        
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css" />
 
         <meta
         name="viewport"
         content="minimum-scale=1, initial-scale=1, width=device-width"
         />
         </Head>
-        <main style={{display: "flex", flexDirection:"column"}}>
+        <main>
+        <div className={styles.logincontainer}>
             
-            <Grid container spacing={3} >
-                <Grid item xs={12}  style={{justifyContent:"center",alignItems:"flex-end",height:"28vh"}}>
-                
-                <div className={styles.logod}>
+            <div className={styles.logod}>
                 <div className={styles.logod1}>
                 <img src="cyber.png" />
                 </div>
                 
+            </div>
+            <div className={styles.logind}>
+                <div className={styles.logincard}>
+                    <div className={styles.logincardh}>
+
+                        <div className={styles.logincardhi2}>
+                        
+                            <Card className={classes.f1}>
+                                <CardContent>
+                                <LoginCard/>
+                                </CardContent>
+                            
+                            </Card>
+                           
+                        </div>
+
+                    </div>
+
                 </div>
-                
-                </Grid>
-                
-                <Grid item xs={12}  >
-                    <Grid container justify="center" >
-                        <Grid item xs={9} sm={6} md={5} lg={4}>
-                        <Card style={{minheight:"380px"}} className={classes.f1}>
-                        <CardContent>
-                        <Container maxWidth="xl" >
-                        <LoginCard/>
-                        </Container>
-                        </CardContent>
-                        </Card>
-                        </Grid>
-
-                    </Grid>
-                    
-                </Grid>
-                
-
-            </Grid>
-            
-
-            
-            
-        </main>
-        <footer style={{width:"100%",height:"200px",display:"flex",background:"transparent",bottom:"0"}}>
-                    <div className={styles.footercardh}>
+                <div className={styles.footercard}>
+                        <div className={styles.footercardh}>
                             <div className={styles.footercardc}>
 
                             </div>
@@ -126,12 +115,12 @@ export default function Login(){
                         <div className={styles.footercardh1}>
                         <img src="BigData.png" width="400px" height="369.96px"/>
                         </div>
-        
 
+                </div>
+            </div>
 
-        </footer>
-     
-        
+        </div>
+        </main>
         </div>
     )
 

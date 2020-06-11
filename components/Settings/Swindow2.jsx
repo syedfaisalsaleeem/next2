@@ -42,8 +42,7 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
-import { Icon, Input } from 'semantic-ui-react';
-import InputBase from '@material-ui/core/InputBase';
+import { Icon, Input } from 'semantic-ui-react'
 const useStyles = makeStyles((theme) => ({
     root: {
       flexGrow: 1,
@@ -51,10 +50,10 @@ const useStyles = makeStyles((theme) => ({
     email:{
     
       position: "absolute",
-      marginLeft: "20.2vw",
+      marginLeft: "20vw",
       width:"170px",
       height:"38px",
-      marginTop: "10px",
+      marginTop: "-38px",
       backgroundColor: "white",
       alignItems: "center",
       justifyContent: "center",
@@ -66,27 +65,6 @@ const useStyles = makeStyles((theme) => ({
       fontStyle: "normal",
       fontWeight: "bold",
       fontSize: "13px",
-  },
-  emailtextfield:{
-    width:"18vw",
-    marginTop:"10px",
-    paddingLeft:theme.spacing(1),
-    border: "0.1px solid #F3F6F9",
-    borderRight:"white",
-    background:"#F3F6F9",
-    height:"40px"
-    
-  },
-  logowithtextfield:{
-    display:"flex",
-    marginTop:"10px",
-    height:"40px",
-    width:"30px",
-    border: "0.1px solid #F3F6F9",
-    borderLeft:"white",
-    alignItems:"center",
-    background:"#F3F6F9"
-    
   },
     f1: {
         background: 'white',
@@ -266,7 +244,6 @@ export default function Swindow(){
       const addcount=()=>{
         set([...st1,""])
         seterror([...error,false])
-        console.log(st1)
         
       }
       const addcount1=()=>{
@@ -283,16 +260,13 @@ export default function Swindow(){
     };
     
     const subcount=(event)=>{
-        const x=event.target.id;
-        console.log(x,event.MouseEvent,"target")
+        const x=event.target.id
         const listi=Object.assign([],st1);
         const liste=Object.assign([],error);
-        console.log(x,"this is deleted")
         listi.splice(x,1);
         liste.splice(x,1);
         seterror(liste)
         set(listi);
-        
     }
     const subcount1=(event)=>{
         
@@ -951,50 +925,19 @@ export default function Swindow(){
                                         </Typography>
                                         {primaryemailcount
                                         ?
-                                        <div style={{display:"flex"}}>                                
-                                          <InputBase
-                                          placeholder="Enter Email"
-                                          name={0}
-                                          value={primaryemail[0]}
-                                          onChange={handletextprimary}
-                                          className={classes.emailtextfield}
-                                          size="Large"
-                                          inputProps={{ 'aria-label': 'naked' }}
-                                          />
-                                          
-                                          </div>
-                                        
-                                      
-                                        :
-                                        <div >
-                                          <div style={{display:"flex"}}>                                
-                                          <InputBase
-                                          placeholder="Enter Email"
-                                          name={0}
-                                          value={primaryemail[0]}
-                                          onChange={handletextprimary}
-                                          className={classes.emailtextfield}
-                                          size="Large"
-                                          inputProps={{ 'aria-label': 'naked' }}
-                                          
-                                          />
-                                          <i className={classes.logowithtextfield}><img type="button" width="24px" height="24px"  src="fav.png"></img></i>
-                                          <IOSSwitch checked={state.checkedE} onChange={handleChange4} name="checkedE" />
-                                          </div>
-                                       
-                                        
-                                        
-                                        
-                                        <InputBase
-                                          placeholder="Enter Email"
-                                          name={1}
-                                          value={primaryemail[1]}
-                                          onChange={handletextprimary}
-                                          className={classes.emailtextfield}
-                                          size="Large"
-                                          inputProps={{ 'aria-label': 'naked' }}
-                                          />
-                                          
+                                        <Input   value={primaryemail[0]}  onChange={handletextprimary} name={0} style={{marginTop:"10px",width:"20vw"}}
+                                        icon={<Icon name='cancel' inverted circular link  />}
+                                        placeholder='Enter Email'
+                                        />:
+                                        <div>
+                                       <Input value={primaryemail[0]} name={0}   onChange={handletextprimary} style={{marginTop:"10px",width:"20vw"}}
+                                                                        icon={<Icon name='cancel' inverted circular link   />}
+                                                                        placeholder='Enter Email'
+                                        />
+                                        <IOSSwitch checked={state.checkedE} onChange={handleChange4} name="checkedE" />
+                                        <Input value={primaryemail[1]} name={1}  onChange={handletextprimary} style={{marginTop:"10px",width:"20vw"}}
+                                                                        placeholder='Enter Email'
+                                        />
                                         </div>
                                         
 
@@ -1024,27 +967,15 @@ export default function Swindow(){
                                         {authenticate?
                                         <div >
                                         {st1.map((value,index) => (        
-                                             
-                                             
-                                        <div style={{display:"flex"}}>                                
-                                          <InputBase
-                                          placeholder="Enter Email"
-                                          name={index}
-                                          value={value}
-                                          onChange={handletext}
-                                          className={classes.emailtextfield}
-                                          size="Large"
-                                          inputProps={{ 'aria-label': 'naked' }}
-                                          />
-                                          <i className={classes.logowithtextfield}><img type="button" onClick={subcount} id={index} width="24px" height="24px"  src="fav.png"></img></i>
-                                          </div>
-                                            
-                                            
-                                        
+                                                                        
+
                                                                         
                                                                          
                                                                       
-                                                                        
+                                                                        <Input    value={value} onChange={handletext} name={index} style={{width:"20vw",marginTop:"10px"}}
+                                                                        icon={<Icon name='cancel' inverted circular link id={index} onClick={subcount} />}
+                                                                        placeholder='Enter Email'
+                                                                      /> 
                                                                                       
                                                                       
 
@@ -1058,27 +989,18 @@ export default function Swindow(){
                                                                         
 
                                                                         
-                                          <div style={{display:"flex"}}>                                
-                                          <InputBase
-                                          placeholder="Enter Email"
-                                          name={index}
-                                          value={value}
-                                          onChange={handletext}
-                                          className={classes.emailtextfield}
-                                          size="Large"
-                                          inputProps={{ 'aria-label': 'naked' }}
-                                          />
-                                          <i className={classes.logowithtextfield}><img type="button" onClick={subcount} id={index} width="24px" height="24px"  src="fav.png"></img></i>
-                                                                    
-                                          
-                                           
+                                                                         
+                                          <div>
+                                          <Input    value={value} onChange={handletext} name={index} style={{width:"20vw",marginTop:"10px"}}
+                                          icon={<Icon name='cancel' inverted circular link id={index} onClick={subcount} />}
+                                          placeholder='Enter Email'
+                                        /> 
                                         <div style={{display:value.length===0?"flex":"none"}} className={classes.email}>
                                           {//console.log({value}.length)
                                           }
                                           <p> Email is not valid</p>
-                                                         
+                                        </div>                 
                                         </div>
-                                        </div> 
 
 
                                       
@@ -1145,7 +1067,7 @@ export default function Swindow(){
                                         
                                         
                                     >
-                                     
+                                      {console.log(authenticate)}
                                         <DialogTitle>
                                         <Grid container style={{height:"6vh",display:"flex"}} >
                                             <Grid items xs={11} style={{height:"6vh",display:"flex"}}>
@@ -1199,8 +1121,8 @@ export default function Swindow(){
                                     </form>
                                 :
                                   <div>
-                                    
-                                    
+                                    {console.log({finalauthenticate},"this false")}
+                                    <p>false</p>
                                   </div>
                                 }
                                 
