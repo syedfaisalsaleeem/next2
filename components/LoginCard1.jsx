@@ -12,8 +12,10 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-
-import { Checkbox } from 'semantic-ui-react';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
+import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 
 class LoginCard extends React.Component{
@@ -131,11 +133,23 @@ class LoginCard extends React.Component{
                             </div>   
 
                         </div>
-                        
+                        <FormControlLabel
+                value="checkedA"
+                control={
+                  <Checkbox
+                    icon={<CheckBoxOutlineBlankIcon fontSize="small" />}
+                    checkedIcon={<CheckBoxIcon fontSize="small" />}
+                    name="checkedA"
+                    onChange={this.handleChange1}
+                    checked={this.state.checkedA}
+                  />
+                }
+                label="Remember Me"
+              />
                         
         
                         
-                        <Checkbox className={styles.remember} label="Remember Me" checked={this.state.checkedA} name="checkedA" onChange={this.handleChange1} />
+                        
         
         
         
