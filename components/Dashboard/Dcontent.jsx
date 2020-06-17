@@ -58,8 +58,8 @@ export default function (){
                     Security Overview
                 </Typography>
                 </Grid>
-                <Grid item xs={12} md={6} >
-                    <Grid container justify="flex-start" maxWidth="xl" style={{background:"yellow"}}>
+                <Grid item xs={12} md={6}  >
+                    <Grid container justify="flex-start"  style={{background:"yellow"}}>
                         <Card className={classes.f1}>
                             <CardHeader
                                 className={classes.HeaderFont}
@@ -209,7 +209,7 @@ export default function (){
                                 
                             }
                             
-                            title="Label"      
+                            title="By Risk"      
                             />
                             <Divider/>
                             <CardContent  >

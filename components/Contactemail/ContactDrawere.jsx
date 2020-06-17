@@ -18,8 +18,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
-import Footer from './Footer';
-import Dcontent from "./Dashboard/Dcontent"
+import Footer from '../Footer';
+import ContactC from "./Contactemail";
 const drawerWidth = 280;
 
 const useStyles = makeStyles((theme) => ({
@@ -104,7 +104,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function CyberDrawer(props) {
+export default function ContactDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
@@ -133,12 +133,12 @@ export default function CyberDrawer(props) {
 
         <Divider/>
         <List className={classes.ltext}>
-          
-            <ListItem  className={classes.ltext1} style={{backgroundColor:"rgba(108, 114, 147, 0.3)"}}>
+            <Link href="/Dashboard">
+            <ListItem  className={classes.ltext1} >
                 <ListItemIcon><img src="dashboard.png" width="28px" height="28px"  /> </ListItemIcon>
                 <ListItemText  disableTypography = {"false"}   primary={"Home"}/>
             </ListItem>
-            
+            </Link>
             <ListItem className={classes.ltext1}>
                 <ListItemIcon><img src="discovery.png" width="28px" height="28px" /> </ListItemIcon>
                 <ListItemText disableTypography = {"false"} primary={"Discover"}/>
@@ -156,9 +156,9 @@ export default function CyberDrawer(props) {
                 <ListItemIcon><img src="settings.png" width="28px" height="28px" />  </ListItemIcon>
                 <ListItemText  disableTypography = {"false"} primary={"Settings"}/>
             </ListItem>
-            </Link >
+            </Link>
             <Link href="/Contact">
-            <ListItem className={classes.ltext1}>
+            <ListItem className={classes.ltext1} style={{backgroundColor:"rgba(108, 114, 147, 0.3)"}}>
                 <ListItemIcon><img src="support.png" width="28px" height="28px" /> </ListItemIcon>
                 <ListItemText disableTypography = {"false"} primary={"Support"}/>
             </ListItem>
@@ -173,7 +173,8 @@ export default function CyberDrawer(props) {
         })} 
       >
         <div className={classes.drawerHeader} />
-        <Dcontent/>
+        <ContactC/>
+        
         
       </main>
       <footer>

@@ -29,15 +29,16 @@ export default function ContactGs1(){
             </Head>
             <main>
                 <div>
-                <h1>
-                    faisal
-                </h1>
                 <InstantSearch
                 indexName="CIH"
                 searchClient={searchClient}
+                
                 >
                 <SearchBox />
+                <div style={{display:"none"}}>
                 <Hits hitComponent={hit}/>
+                </div>
+                
             </InstantSearch>
             </div>
             </main>

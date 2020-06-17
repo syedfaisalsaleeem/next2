@@ -31,14 +31,14 @@ render(){
         
       </Head>
 
-      <main>
+      <main style={{background:"#E5E5E5"}}>
       <Header call={this.handledrawer}/>
         <CyberDrawer call={this.state.drawer}/>
        
        
       </main>
 
-      <footer style={{display:"flex",marginTop:"1vh"}}>
+      <footer style={{display:"flex",marginTop:"0vh",background:"#E5E5E5"}}>
       
       <Footer />
          
@@ -51,6 +51,7 @@ render(){
         body {
           width:100%;
           height:100%;
+          
           padding: 0;
           margin: 0;
           font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,

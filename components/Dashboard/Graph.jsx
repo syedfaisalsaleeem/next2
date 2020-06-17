@@ -41,8 +41,8 @@ render(){
             data={this.state.chartData}
             options={{
                 title:{
-                    display:true,
-                    text:"Largest Cities"
+                    display:false,
+                    
                 },
                 legend:{
                     display:true,

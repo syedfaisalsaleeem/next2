@@ -25,6 +25,7 @@ const drawerWidth = 280;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    background:"#E5E5E5",
   },
   ltext:{
     

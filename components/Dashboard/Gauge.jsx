@@ -6,26 +6,31 @@ import InfoIcon from '@material-ui/icons/Info';
 export default function Gauge(){
  return(
     <div>
-    
-    <GaugeChart id="gauge-chart3" 
+    <Grid container justify="center" >
+        <Grid item >
+        <GaugeChart id="gauge-chart3" 
         nrOfLevels={30} 
         colors={["#FF5F6D", "#FFC371"]} 
         arcWidth={0.3} 
         percent={0.37} 
         textColor={"transparent"}
+        style={{height:"280px",width:"600px"}} 
         
     />
-    <Grid container direction="row" style={{background:"green"}} justify="center">
-        <Grid item  style={{background:"yellow"}}>
+        </Grid>
+    </Grid>
+   
+    <Grid container direction="row"  justify="center" style={{marginBottom:"6vh"}}>
+        <Grid item  >
         <Typography variant="h4"> <CountUp start={0} end={143} duration={2.5} separator=","/></Typography>
         
         </Grid>
         <Grid item>
-        <Typography variant="h4" style={{background:"red"}}>/</Typography>
+        <Typography variant="h4" >/</Typography>
         </Grid>
         
-        <Grid item  style={{background:"pink"}}>
-        <Typography variant="h4"> <CountUp start={0} end={143} duration={2.5} separator=","/></Typography>
+        <Grid item >
+        <Typography variant="h4"> <CountUp start={0} end={300} duration={2.5} separator=","/></Typography>
         </Grid>
 
         <Grid item>

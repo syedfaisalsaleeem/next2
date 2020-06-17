@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react';
 import Header from "../components/Header";
-import ContactDrawer from "../components/Contact/ContactDrawer";
+import ContactDrawer from "../components/Contactemail/ContactDrawere";
 import Footer from "../components/Footer";
 class Contact extends React.Component {
     constructor(props){
