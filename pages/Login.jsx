@@ -55,7 +55,7 @@ export default function Login(){
         <main style={{display: "flex", flexDirection:"column"}}>
             
             <Grid container spacing={3} >
-                <Grid item xs={12}  style={{justifyContent:"center",alignItems:"flex-end",height:"28vh"}}>
+                <Grid item xs={12}  style={{justifyContent:"center",alignItems:"flex-end",height:"24vh"}}>
                 
                 <div className={styles.logod}>
                 <div className={styles.logod1}>
@@ -66,7 +66,7 @@ export default function Login(){
                 
                 </Grid>
                 
-                <Grid item xs={12}  >
+                <Grid item xs={12} style={{height:"60vh"}} >
                     <Grid container justify="center" >
                         <Grid item xs={9} sm={6} md={5} lg={4}>
                         <Card style={{minheight:"380px"}} className={classes.f1}>

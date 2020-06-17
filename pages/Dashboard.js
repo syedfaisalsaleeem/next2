@@ -38,7 +38,7 @@ render(){
        
       </main>
 
-      <footer style={{display:"flex",marginTop:"65vh"}}>
+      <footer style={{display:"flex",marginTop:"1vh"}}>
       
       <Footer />
          

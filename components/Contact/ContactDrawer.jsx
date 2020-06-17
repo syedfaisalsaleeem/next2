@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from "next/link"
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,9 +16,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import InboxIcon from '@material-ui/icons/MoveToInbox';
+import MailIcon from '@material-ui/icons/Mail';
 import Footer from '../Footer';
-import Link from "next/link"
-import Swindow from './Swindow';
+import ContactC from "./ContactC";
 const drawerWidth = 280;
 
 const useStyles = makeStyles((theme) => ({
@@ -84,27 +86,28 @@ const useStyles = makeStyles((theme) => ({
   },
   content: {
     flexGrow: 1,
-    padding: theme.spacing(2),
+    padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
-    marginLeft: -10,
+    marginLeft: 0,
   },
 }));
 
-export default function CyberDrawer(props) {
+export default function ContactDrawer(props) {
   const classes = useStyles();
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
-
+  const [open, setOpen] = React.useState(true);
+  console.log(props.call)
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -126,16 +129,14 @@ export default function CyberDrawer(props) {
           paper: classes.drawerPaper,
         }}
       >
-        <Divider/>
-        
-        
 
+        <Divider/>
         <List className={classes.ltext}>
-          <Link href="/Dashboard">
-                <ListItem  className={classes.ltext1}>
-                    <ListItemIcon><img src="dashboard.png" width="28px" height="28px" /> </ListItemIcon>
-                    <ListItemText  disableTypography = {"false"}   primary={"Home"}/>
-                </ListItem>
+            <Link href="/Dashboard">
+            <ListItem  className={classes.ltext1} >
+                <ListItemIcon><img src="dashboard.png" width="28px" height="28px"  /> </ListItemIcon>
+                <ListItemText  disableTypography = {"false"}   primary={"Home"}/>
+            </ListItem>
             </Link>
             <ListItem className={classes.ltext1}>
                 <ListItemIcon><img src="discovery.png" width="28px" height="28px" /> </ListItemIcon>
@@ -149,12 +150,14 @@ export default function CyberDrawer(props) {
                 <ListItemIcon><img src="exposedsystems.png" width="28px" height="28px" /> </ListItemIcon>
                 <ListItemText disableTypography = {"false"} primary={"Exposed Systems"}/>
             </ListItem>
-            <ListItem className={classes.ltext1} style={{backgroundColor:"rgba(108, 114, 147, 0.3)"}}>
+            <Link href="/Settings">
+            <ListItem className={classes.ltext1}>
                 <ListItemIcon><img src="settings.png" width="28px" height="28px" />  </ListItemIcon>
                 <ListItemText  disableTypography = {"false"} primary={"Settings"}/>
             </ListItem>
+            </Link>
             <Link href="/Contact">
-            <ListItem className={classes.ltext1}>
+            <ListItem className={classes.ltext1} style={{backgroundColor:"rgba(108, 114, 147, 0.3)"}}>
                 <ListItemIcon><img src="support.png" width="28px" height="28px" /> </ListItemIcon>
                 <ListItemText disableTypography = {"false"} primary={"Support"}/>
             </ListItem>
@@ -166,19 +169,13 @@ export default function CyberDrawer(props) {
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: props.call,
-        })}
+        })} 
       >
-        
         <div className={classes.drawerHeader} />
+        <ContactC/>
         
-        <Typography paragraph>
-          
-          <Swindow/>
-        </Typography>
-
         
       </main>
-      
       <footer>
       
       </footer>

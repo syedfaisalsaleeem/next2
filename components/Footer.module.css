@@ -71,14 +71,14 @@ color:#255398;
 }
 .footercardc121 p{
     font-size: 15px;
-    border-bottom: 1px solid #255398;
+    color:blue;
 
     
     
     }
 .footercardc121 p:hover{
     cursor:pointer;
-    border-bottom: 3px solid red;
+    
 
     
     

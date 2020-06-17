@@ -10,10 +10,11 @@ height: 100%;
 .containerlogincardin{
     display: flex;
     flex-direction: column;
-    width:65%;
-    height: 90%;
-    margin-top: 15%;
-    justify-content: flex-start;
+    width:100%;
+    
+    margin-top: 10%;
+    justify-content: center;
+    margin-bottom: 10%;
     
    
 
@@ -81,7 +82,7 @@ height: 100%;
     font-family:"Poppins" ;
     font-size: 13px;
     font-weight: bold;
-    border-bottom: 1px solid black;
+    color:blue;
     
     
 }
@@ -95,18 +96,18 @@ height: 100%;
     font-family:"Poppins" ;
     font-size: 13px;
     font-weight: bold;
-    border-bottom: 1px solid black;
+    color:blue;
     
     
 }
 
 .loginfooter1 p:hover{
     cursor: pointer;
-    border-bottom: 1px solid #8950FC;
+    
 }
 .loginfooter2 p:hover{
     cursor: pointer;
-    border-bottom: 1px solid #8950FC;
+    
 }
 .email{
     

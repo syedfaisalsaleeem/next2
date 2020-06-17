@@ -800,7 +800,7 @@ export default function Swindow(){
                                         </DialogTitle>
 
                                         <Divider/>
-                                        <DialogContent style={{height:"100vh",width:"31vw"}}>
+                                        <DialogContent style={{height:"100vh"}}>
                                         <DialogContentText>
 
                                         </DialogContentText>

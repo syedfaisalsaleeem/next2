@@ -40,6 +40,12 @@ render(){
         * {
           box-sizing: border-box;
         }
+        .percent-text{
+          text-anchor: middle;
+          font-family: 'Roboto', sans-serif;
+          
+        }
+        
       `}</style>
     </div>
   )
